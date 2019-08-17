@@ -2,15 +2,29 @@
 from flask import Flask
 
 # Flask类接收一个参数__name__
+from werkzeug.routing import BaseConverter
+
 app = Flask(__name__,
             static_url_path='/url_path_param',  # 静态文件url访问资源路径
             static_folder='folder_param')  # 静态文件目录
-app.config
+
 
 # 装饰器的作用是将路由映射到视图函数index
 @app.route('/')
 def index():
     return 'Hello World'
+
+
+class MobileConverter(BaseConverter):
+    regex = r'1[3-9]\d{9}$'
+
+
+app.url_map.converters['mob'] = MobileConverter
+
+
+@app.route('/user/<mob:mobile>')
+def mobile(mobile):
+    return '手机号'
 
 
 # Flask应用程序实例的run方法启动WEB服务器
