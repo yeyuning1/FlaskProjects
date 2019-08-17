@@ -5,7 +5,8 @@ app = Flask(__name__)
 
 @app.route('/index')
 def index():
-    response = make_response('idnex')
+    response = make_response('index')
+    # 设置 cookie 的本质是再 响应头中的 set-cookie 字段添加 cookie 内容
     response.set_cookie('zz1', '123', max_age=86400)
     return response
 
