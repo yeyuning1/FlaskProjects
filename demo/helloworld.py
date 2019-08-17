@@ -30,7 +30,7 @@ def mobile(mobile):
     response = make_response(mobile)  # type: Response
     # 自定义响应对象
     response.headers['b'] = '123'
-    response = response.set_cookie('zzz', '123', expires=300)
+    response = response.set_cookie('zzz', '123', max_age=300)
     return response
 
 
