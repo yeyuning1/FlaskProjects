@@ -50,6 +50,7 @@ def redirect():
 
     # 重定向到自己的网页 直接写资源段
     # return redirect('/')
+
     # 获取视图函数的 url 资源段
     # 获取动态url的时候 需要指定对应参数的值
     url = url_for('mobile', mobile=10)
@@ -65,4 +66,4 @@ def code():
 
 # Flask应用程序实例的run方法启动WEB服务器
 if __name__ == '__main__':
-    app.run()
+    app.run()  # 1.0 以后推荐使用命令行 flask run 来运行程序, 需要提前配置 FLASK_ENV 或者 FLASK_DEBUG=1
