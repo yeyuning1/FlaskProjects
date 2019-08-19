@@ -16,10 +16,14 @@ class FirstResource(Resource):
         parser = RequestParser()
         parser.add_argument(name='name',
                             required=False,
-                            help='错误',
-                            action='store',
+                            help='不符合格式',
+                            action='store',  # append
                             type=func1,
-                            location='args')
+                            location='args',  # form/json/data/files/headers
+                            ignore=False,
+                            case_sensitive=False,
+                            trim=True,
+                            nullable=True)
         parser.add_argument('age')
         args = parser.parse_args()
         name = args.name
