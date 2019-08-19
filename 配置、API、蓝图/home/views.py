@@ -18,7 +18,8 @@ class FirstResource(Resource):
                             required=False,
                             help='错误',
                             action='store',
-                            type=func1)
+                            type=func1,
+                            location='args')
         parser.add_argument('age')
         args = parser.parse_args()
         name = args.name
