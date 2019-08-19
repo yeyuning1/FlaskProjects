@@ -1,5 +1,3 @@
-import re
-
 from flask_restful import Resource, inputs
 from flask_restful.reqparse import RequestParser
 
