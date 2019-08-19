@@ -20,5 +20,6 @@ def create_app(config_type):
 
 """
 $ export FLASK_APP="app:create_app('dev')"
+$ export FLASK_ENV=development
 $ flask run
 """
