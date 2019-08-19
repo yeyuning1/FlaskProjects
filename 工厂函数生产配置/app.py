@@ -14,3 +14,9 @@ def create_app(config_type):
     app.config.from_envvar('MY_ENV', silent=True)
     app.add_url_rule('/', endpoint='index', view_func=index)
     return app
+
+
+"""
+$ export FLASK_APP="app:create_app('dev')"
+$ flask run
+"""
