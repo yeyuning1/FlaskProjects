@@ -1,9 +1,15 @@
 import re
 
-from flask_restful import Resource, inputs
+from flask_restful import Resource, inputs, fields, marshal_with, marshal
 from flask_restful.reqparse import RequestParser
 
 from home.utils import decorator1, decorator2
+
+resource_fields = {
+    'name': fields.String,
+    'address': fields.String,
+    'user_id': fields.Integer
+}
 
 
 def func1(value):
@@ -19,6 +25,7 @@ class FirstResource(Resource):
         'post': decorator2
     }
 
+    @marshal_with(resource_fields, envelope='resource')
     def get(self):
         parser = RequestParser()
         parser.add_argument(name='name',
@@ -39,4 +46,5 @@ class FirstResource(Resource):
         return {'get': 'foo'}
 
     def post(self):
-        return {'post': 'foo'}
+        data = {'post': 'foo'}
+        return marshal(data, resource_fields)
