@@ -1,6 +1,6 @@
 import re
 
-from flask_restful import Resource
+from flask_restful import Resource, inputs
 from flask_restful.reqparse import RequestParser
 
 from home.utils import decorator1, decorator2
@@ -12,14 +12,14 @@ class FirstResource(Resource):
         'post': decorator2
     }
 
-    def get(self, func1=lambda x: x if re.match('^user:.*?', x) else None):
+    def get(self):
         parser = RequestParser()
         parser.add_argument(name='name',
                             dest='username',
                             required=False,
                             help='不符合格式',
                             action='store',  # append
-                            type=func1,
+                            type=inputs.regex('xx'),
                             location='args',  # form/json/data/files/headers
                             ignore=False,
                             case_sensitive=False,
