@@ -15,6 +15,7 @@ class FirstResource(Resource):
     def get(self, func1=lambda x: x if re.match('^user:.*?', x) else None):
         parser = RequestParser()
         parser.add_argument(name='name',
+                            dest='username',
                             required=False,
                             help='不符合格式',
                             action='store',  # append
@@ -26,7 +27,7 @@ class FirstResource(Resource):
                             nullable=True)
         parser.add_argument('age')
         args = parser.parse_args()
-        name = args.name
+        name = args.username
         age = args.age
         return {'get': 'foo'}
 
