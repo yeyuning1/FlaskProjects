@@ -15,3 +15,4 @@ def decorator2(f):
         return f(*args, **kwargs)
 
     return wrapper
+
