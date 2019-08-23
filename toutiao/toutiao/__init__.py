@@ -49,6 +49,18 @@ def create_app(env_type, enable_config_file=False):
     app.redis_master = _sentinel.master_for(app.config['REDIS_SENTINEL_SERVICE_NAME'])
     app.redis_slave = _sentinel.slave_for(app.config['REDIS_SENTINEL_SERVICE_NAME'])
 
+    # 配置myql数据库
+    from models import db
+    db.init_app(app)
+
+    # 配置日志
+    from utils.logging import create_logger
+    create_logger(app)
+
+    # 限流器
+    from utils.limiter import limiter as lmt
+    lmt.init_app(app)
+
     # 注册用户模块蓝图
     from .resources.user import user_bp
     app.register_blueprint(user_bp)
