@@ -1,0 +1,2 @@
+# 短信验证码有效期, 秒
+SMS_VERIFICATION_CODE_EXPIRES = 5 * 60
