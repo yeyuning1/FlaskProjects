@@ -1,5 +1,0 @@
-# 短信签名
-SMS_SIGN = '黑马头条'
-
-# 短信验证码模板ID
-SMS_VERIFICATION_CODE_TEMPLATE_ID = 'SMS_151231777'
