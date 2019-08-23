@@ -36,7 +36,7 @@ def index():
     user1 = User(name='zs')
     db.session.add(user1)
     db.session.flush()
-
+    db.session.rollback()
     addr1 = Address(detail='中关村3号', user_id=user1.id)
     addr2 = Address(detail='中关村2号', user_id=user1.id)
     db.session.add_all([addr1, addr2])
