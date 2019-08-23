@@ -61,6 +61,12 @@ def create_app(env_type, enable_config_file=False):
     from utils.limiter import limiter as lmt
     lmt.init_app(app)
 
+    # 创建Snowflake ID worker
+    from utils.snowflake.id_worker import IdWorker
+    app.id_worker = IdWorker(app.config['DATACENTER_ID'],
+                             app.config['WORKER_ID'],
+                             app.config['SEQUENCE'])
+
     # 注册用户模块蓝图
     from .resources.user import user_bp
     app.register_blueprint(user_bp)
