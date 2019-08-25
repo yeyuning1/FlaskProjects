@@ -1,6 +1,6 @@
 from flask import Flask
 
-from home import home_blue
+from .home import home_blue
 
 app = Flask(__name__)
 
