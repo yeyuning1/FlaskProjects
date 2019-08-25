@@ -36,10 +36,10 @@ if __name__ == '__main__':
     user2 = User(name='zhang', email='zhang@189.com', age=33)
     user3 = User(name='chen', email='chen@126.com', age=23)
     user4 = User(name='zhou', email='zhou@163.com', age=29)
-    user5 = User(name='tang', email='tang@itheima.com', age=25)
+    user5 = User(name='tang', email='tang@123.com', age=25)
     user6 = User(name='wu', email='wu@gmail.com', age=25)
     user7 = User(name='qian', email='qian@gmail.com', age=23)
-    user8 = User(name='liu', email='liu@itheima.com', age=30)
+    user8 = User(name='liu', email='liu@123.com', age=30)
     user9 = User(name='li', email='li@163.com', age=28)
     user10 = User(name='sun', email='sun@163.com', age=26)
 
