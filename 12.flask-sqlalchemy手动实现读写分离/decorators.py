@@ -1,4 +1,4 @@
-from user_select import db
+from .user_select import db
 
 
 def select_write_db(f):
