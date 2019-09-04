@@ -1,0 +1,31 @@
+syntax = 'proto3';  // 版本号
+
+
+message RecoRequestArgs {  // 请求参数类型
+    string user_id=1;  // 用户id
+    int32 channel_id=2;  // 频道id
+    int32 article_num=3;  // 文章数量
+    int64 time_stamp=4;  // 时间戳
+}
+
+message Track {  // 埋点参数类型
+    string click=1;
+    string read=2;
+    string collect=3;
+}
+
+message Article {  // 文章参数类型
+    int64 article_id=1;  // 文章id
+    Track track=2;  // 埋点数据
+}
+
+message RecoResponseArgs {  // 响应参数类型
+    int64 pre_time_stamp=1;  // 上一次推荐数据的时间戳
+    repeated Article articles=2;  // 所有的文章数据
+}
+
+
+service Reco{  // 推荐系统服务
+    rpc article_recommand(RecoRequestArgs) returns (RecoResponseArgs) {} // 文章推荐接口
+    // rpc article_like() returns () {} // 猜你喜欢接口
+}
